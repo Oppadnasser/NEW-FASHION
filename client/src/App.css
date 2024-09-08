@@ -1,0 +1,1197 @@
+/* ------------------------------------- Font CSS --------------------------------------- */
+.titillium-web-extralight {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.titillium-web-light {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.titillium-web-regular {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.titillium-web-semibold {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.titillium-web-bold {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.titillium-web-black {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.titillium-web-extralight-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.titillium-web-light-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.titillium-web-regular-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.titillium-web-semibold-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.titillium-web-bold-italic {
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------ Header CSS -------------------------------------- */
+*,*::after,*::before{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+
+}
+
+body{
+  /* background-color: #F8F9FA; */
+  background-color: #e8e8e8;
+}
+
+::-webkit-scrollbar{
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, black, honeydew);
+}
+
+.App {
+  margin: auto;
+}
+
+.nav-bar{
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  border-radius: 15px;
+  /* box-shadow: 20px 10px 10px rgba(0, 0, 0, 0.1); */
+}
+
+.logo{
+  text-align: center;
+  font-size: 50px; 
+  font-weight: 600; 
+}
+
+.logo p{
+  font-family: "Amatic SC", sans-serif;
+}
+
+.logo p::after{
+  content: "";
+  display: block;
+  width: 200px; 
+  margin:  auto; 
+  border-bottom: 5px solid rgb(0, 0, 0); 
+  border-radius: 20px;
+}
+
+.header{
+  background-color: #fff;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top:0;
+  z-index: 999;
+  padding-block: 10px;
+  display: flex; 
+  justify-content: space-around;
+  align-items: center;
+}
+
+.nav-bar ul{
+  text-decoration: none;
+  list-style: none;
+  display: flex;
+  column-gap: 15px;
+}
+
+.nav-bar li{
+  text-align: center;
+  padding: 0px 15px 0 15px;
+  padding: 5px;
+}
+
+.nav-bar li > a {
+  text-decoration: none;
+  color: black;
+  line-height: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  padding: 8px 16px;
+  border-radius: 22px;
+}
+
+.nav-bar li > a:hover {
+  transition: 0.25s;
+  /* background: rgb(147, 183, 222); */
+  background: honeydew;
+  /* color: black; */
+  color: rgb(133, 5, 245);
+}
+
+img {
+  width: 250px;
+  height: 55px;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* -------------------------------- Admin Register CSS ---------------------------------- */
+
+
+.admin-register-container {
+  position: relative;
+  left: 400px;
+  top: 100px;
+  background-color: white;
+  width: 700px;
+  height: 800px;
+  display: grid;
+  place-content: center;
+  /* margin-top: 250px; */
+  border-radius: 18px;
+}
+
+.admin-register-form {
+  width: 700px;
+  height: 800px;
+  display: grid;
+  place-content: center;
+  background-color: honeydew;
+  color: black;
+  border-radius: 20px;
+}
+
+.admin-register-form input {
+  height: 40px;
+  width: 550px;
+  border-radius: 12px;
+  background-color: honeydew;
+  border-color: rgb(70, 117, 70);
+  box-shadow: 0 0 5px 5px rgb(132, 147, 132);
+  display: grid;
+  place-content: center;
+  margin-top: 5px;
+  margin-bottom: 13px;
+}
+
+.admin-register-submit {
+  height: 35px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: honeydew;
+  border-radius: 8px;
+  margin-top: -30px;
+  margin-bottom: 5px;
+}
+
+.admin-register-h1 {
+  font-size: 34px;
+  display: grid;
+  place-content: center;
+  background-color: honeydew;
+  border-radius: 12px;
+}
+
+.link-inside-p-admin-register {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.admin-register-honey-bot {
+  visibility: hidden;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ----------------------------------- Profile CSS -------------------------------------- */
+.profile-container {
+  position: relative;
+  top: 90px;
+  left: 20px;
+}
+
+.profile-h1 {
+  /* position: relative;
+  left: 30px; */
+  /* font-size: 55px;
+  font-weight: 750; */
+  background-color: honeydew;
+}
+
+.profile-table-row-label {
+  text-transform: capitalize;
+  padding-right: 30px;
+}
+
+.profile-container .profile-table input {
+  height: 35px;
+  width: 550px;
+  border-radius: 5px;
+  background-color: lavender;
+  border-color: lavenderblush;
+  box-shadow: 0 0 5px 5px lavender;
+  display: grid;
+  place-content: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.profile-container .profile-table input:focus {
+  background-color: black;
+  color: white;
+}
+
+.profile-update-button {
+  height: 40px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: beige;
+}
+
+.profile-update-button:hover {
+  color: goldenrod;
+}
+
+.profile-update-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: width 1s;
+}
+
+.profile-update-button:hover::before {
+  width: 100%;
+}
+
+.profile-delete-button {
+  height: 40px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: beige;
+}
+
+.profile-delete-button:hover {
+  color: goldenrod;
+}
+
+.profile-delete-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: width 1s;
+}
+
+.profile-delete-button:hover::before {
+  width: 90%;
+}
+
+textarea {
+  width: 550px;
+  height: 70px;
+  border-radius: 5px;
+  background-color: lavender;
+  border-color: lavenderblush;
+  box-shadow: 0 0 5px 5px lavender;
+  display: grid;
+  place-content: center;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+textarea:focus {
+  background-color: black;
+  color: white;
+}
+
+.profile-table-row-label {
+  text-transform: capitalize;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------ Delete User Popup CSS --------------------------------- */
+.delete-popup {
+  background-color: rgb(99, 94, 94);
+  position: relative;
+  width: 600px;
+  top: -270px;
+  left: 450px;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
+}
+
+.delete-popup-content {
+  text-align: right;
+  color: #fff;
+}
+
+.delete-popup-h2 {
+  text-align: left;
+}
+
+.yes-delete {
+  height: 35px;
+  width: 100px;
+  color: black;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: red;
+}
+
+.yes-delete:hover {
+  color: white;
+}
+
+.cancel-delete {
+  height: 35px;
+  width: 100px;
+  color: black;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: rgb(120, 200, 66);
+}
+
+.cancel-delete:hover {
+  color: white;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ---------------------------- Update User Data Popup CSS ------------------------------ */
+.update-popup {
+  background-color: rgb(99, 94, 94);
+  position: relative;
+  width: 700px;
+  height: 700px;
+  left: 400px;
+  top: -450px;
+  overflow: hidden;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  display: grid;
+  place-content: center;
+}
+
+.update-popup-content {
+  text-align: center;
+  color: #fff;
+}
+
+.update-popup-h2 {
+  font-size: 34px;
+  display: grid;
+  place-content: center;
+}
+
+.yes-update {
+  height: 35px;
+  width: 100px;
+  color: black;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: rgb(120, 200, 66);
+}
+
+.yes-update:hover {
+  color: white;
+}
+
+.cancel-update {
+  height: 35px;
+  width: 100px;
+  color: black;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: red;
+}
+
+.cancel-update:hover {
+  color: white;
+}
+
+
+.update-form {
+  width: 700px;
+  height: 600px;
+  display: grid;
+  place-content: center;
+  background-color: rgb(99, 94, 94);
+  color: black;
+  border-radius: 20px;
+}
+
+.update-form label {
+  text-align: left;
+}
+
+.update-form input {
+  height: 40px;
+  width: 550px;
+  border-radius: 12px;
+  background-color: lavender;
+  border-color: lavenderblush;
+  box-shadow: 0 0 5px 5px lavender;
+  display: grid;
+  place-content: center;
+  margin-top: 5px;
+  margin-bottom: 13px;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* ----------------------------------- Contact CSS -------------------------------------- */
+.contact-container {
+  position: relative;
+  top: 90px;
+  left: 20px;
+}
+
+.contact-h1 {
+  margin-bottom: 10px;
+  background-color: honeydew;
+}
+.contact-h2 {
+  margin-bottom: 10px;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------- Home CSS --------------------------------------- */
+.home-container {
+  display: block;
+  position: relative;
+  top: 90px;
+  left: 20px;
+}
+
+/* Css of header animation */
+.new-home-header .leMagnify span { 
+  animation: leMagnify 2s ease-in-out forwards;/* 2s is the duration of the animation*/
+  animation-delay: 360s; /* 1s delay between each iteration */
+  font-size: 50px;
+  /* padding-left: 90px; */
+  font-family: "Titillium Web", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@keyframes leMagnify {
+  50% {
+      /* transform: scale(1.8); */
+      /* letter-spacing: 26px; */
+  }
+}
+/*--------------------test------------------------*/
+
+.both-header-content{
+  display: flex;
+  height: 200px;
+  width: 100%;
+  top:90px;
+  left: 20px;
+}
+
+
+.new-home-header #newanimate {
+  display: flex;
+  width: 170px;
+  position: relative;
+  animation: slideInFromBottom 1s ease-out forwards;
+  border-color: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+  justify-content: center;
+  margin-left: 35px;
+  
+}
+
+.new-home-header #new{
+  color:#e8e8e8;
+}
+.new-home-header{
+  position: relative;
+  width: 250px;
+  margin-left: 65px;
+  margin-top: 10px;
+  border: 7px solid;
+  /* border-top-color: orange;
+  border-left-color: black;
+  border-bottom-color: black;
+  border-right-color: orange; */
+
+  border-radius: 10px;
+}
+
+
+@keyframes slideInFromTop {
+  0% {
+      transform: translateY(-20%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+  }
+}
+
+.new-home-header #fashionanimate{
+  animation:slideInFromTop 1s ease-out forwards;
+  margin-left: 35px;
+  /* box-shadow: 10px 10px 5px black; */
+}
+
+
+
+
+.new-home-header #fashion{
+  color: #e8e8e8;
+}
+@keyframes slideInFromBottom {
+  0% {
+      transform: translateY(20%);
+      opacity: 0;
+  }
+  100% {
+      transform: translateY(0);
+      opacity: 1;
+      transform: scale(1.3);
+  }
+}
+
+
+.new-home-header #line{
+  animation: slideInFromLeft 1.5s ease-out forwards;
+  width: 200px;
+  margin-left: 20px;
+}
+
+
+
+@keyframes slideInFromLeft{
+  0%{
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50%{
+    transform: translateX(40%);
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.new-home-header .sequenceanimate{
+    content: attr(data-text);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background: linear-gradient(70deg,black,gray,rgb(22, 233, 248),black,black,gray); */
+    background: linear-gradient(45deg,black,black,orange,black,orange,black);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: colorChange 1s ease-in-out infinite;
+}
+
+@keyframes colorChange {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.both-header-content .blur-content .statement {
+  animation: fadeInOut 4s ease-in-out infinite;
+  font-family: "Titillium Web", sans-serif;
+  font-size: larger;
+  font-weight: 800;
+  font-style: italic;
+  text-align: center;
+  column-gap: 10px;
+  color: black;
+  margin-top:20px;
+  text-shadow: 10px black;
+  letter-spacing: 4px;
+  text-decoration-line:inherit;
+}
+
+@keyframes fadeInOut {
+  0%{
+    transform: translateX(-10%);
+    opacity: 0;
+  }
+
+  10%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+  80%{
+    transform:translateX(0);
+    opacity: 1;
+  }
+  90%{
+    transform: translateX(10%);
+    opacity: 0;
+  }
+  100%{
+    transform:translateX(20%);
+    opacity: 0;
+  }
+}
+
+
+/* .new-home-header .sequenceanimate{
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    
+} */
+
+
+
+
+
+
+/* Css of the content text */
+.both-header-content .blur-content {
+  font-family: "Titillium Web", sans-serif;
+  width: 300px;
+  font-weight: 500;
+  font-style: italic;
+  text-align: center;
+  padding-top: 25px;
+  gap: 5px;
+  column-gap: 10px;
+  background: transparent;
+  backdrop-filter: blur(10px);
+  height: 150px;
+  width: 550px;
+  
+  border-radius: 8px;
+  border:5px solid orange;
+  color: black;
+  position: relative;
+  left: 200px;
+  top: 30px;
+  /*rgb(24, 189, 211)*/
+}
+
+
+
+/* Css of image circle */
+.side .box {
+  position: relative;
+  top: -150px;
+  left: 55%;
+  width: 200px;
+  height: 200px;
+  transform-style:preserve-3d;
+  animation: animate 20s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+      transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+      transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.side .box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(400px);
+  -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
+}
+
+.side .box span img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 2px solid white;
+  border-radius: 18px;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------ About CSS --------------------------------------- */
+.about-container {
+  position: relative;
+  top: 90px;
+  left: 20px;
+}
+
+.about-h1 {
+  margin-bottom: 10px;
+  background-color: honeydew;
+}
+
+.summary {
+  font-size: 25px;
+  font-style: italic;
+  background-color: aliceblue;
+}
+
+.summary-list li {
+  padding-left: 40px;
+  list-style: none;
+  background-color: azure;
+}
+
+.summary-list li .about-summary {
+  font-size: 20px;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------ log-in CSS -------------------------------------- */
+
+.Log-in-div{
+  position: relative;
+    left: 480px;
+    background-color: white;
+    width: 500px;
+    height: 400px;
+    display: grid;
+    place-content: center;
+    border-radius: 18px; 
+    border: solid 2px black;
+    top: 150px;
+    left: 33%;
+}
+
+.Log-in-div .log-in-form {
+  width: 500px;
+  height: 400px;
+  display: grid;
+  place-content: center;
+  background-color: honeydew;
+  color: black;
+  border-radius: 20px;
+  border: solid 2px black;
+}
+
+.Log-in-div h1 {
+  font-size: 34px;
+  display: grid;
+  place-content: center;
+  background-color: honeydew;
+  border-radius: 12px;
+}
+
+.Log-in-div input{
+  height: 40px;
+  width: 400px;
+  border-radius: 12px;
+  background-color: honeydew;
+  border-color: rgb(70, 117, 70);
+  box-shadow: 0 0 5px 5px rgb(132, 147, 132);
+  display: grid;
+  place-content: center;
+  margin-top: 5px;
+  margin-bottom: 13px;
+}
+
+.Log-in-div .log-in-login-page {
+  position: relative;
+  height: 35px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: honeydew;
+  border-radius: 8px;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  top: 30px;
+}
+
+.Log-in-div .register-login-page {
+  position: relative;
+  height: 35px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: honeydew;
+  border-radius: 8px;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  top: 45px;
+}
+
+#to-register-link {
+  position: relative;
+  top: 37px;
+  margin-bottom: 6px;
+  font-size: smaller ;
+}
+
+.Log-in-div button:hover{
+  color:goldenrod;
+}
+
+.Log-in-div button #to-register-button:hover{
+  color:goldenrod;
+}
+
+.Log-in-div button #to-register-button{
+  color:black;
+  text-decoration: none;
+}
+
+.Log-in-div button #to-main:hover{
+  color:goldenrod;
+}
+
+.Log-in-div button #to-main{
+  color:black;
+  text-decoration: none;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------ Register CSS ------------------------------------ */
+
+
+.register-form{
+  position: relative;
+  left: 400px;
+  top: 100px;
+  background-color: honeydew;
+  width: 700px;
+  height: 950px;
+  display: grid;
+  place-content: center;
+  margin-top: 15px;
+  border-radius: 18px;
+}
+
+.the-form{
+  width: 700px;
+  height: 950px;
+  display: grid;
+  place-content: center;
+  background-color: honeydew;
+  color: black;
+  border-radius: 20px;
+  margin-top: -30px;
+}
+
+.register-form input{
+  height: 40px;
+  width: 550px;
+  border-radius: 12px;
+  background-color: honeydew;
+  border-color: rgb(70, 117, 70);
+  box-shadow: 0 0 5px 5px rgb(132, 147, 132);
+  display: grid;
+  place-content: center;
+  margin-top: 5px;
+  margin-bottom: 13px; 
+}
+
+.register-form .the-form h1{
+  font-size: 34px;
+  display: grid;
+  place-content: center;
+  margin-top: -70px;
+  background-color: honeydew;
+  border-radius: 12px;
+}
+
+.register-form .the-form .register-button {
+  position: relative;
+  height: 35px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: honeydew;
+  border-radius: 8px;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  top: 30px;
+}
+
+.register-form .the-form .log-in-question {
+  position: relative;
+  top: 35px;
+}
+
+.register-form .the-form .log-in-button {
+  position: relative;
+  height: 35px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: honeydew;
+  border-radius: 8px;
+  margin-top: -30px;
+  margin-bottom: 5px;
+  top: 70px;
+}
+
+.register-form .the-form button:hover , .register-form .the-form #log-in-link:hover{
+  color:goldenrod;
+}
+
+.register-form .the-form #log-in-link{
+  color:black;
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------Main page CSS------------------------------------- */
+
+.main-page{
+  display: flex ;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin:auto;
+  margin-top: 85px;
+  background-color: rgb(231, 231, 231);
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* -----------------------------------------Post CSS------------------------------------- */
+
+.company-logo{
+  width: 100px;
+  height: 25px;
+  margin-right: 2px;
+  margin-top: 2px;
+
+}
+
+.post{
+  width:18%;
+  background-color:beige ;
+  text-align: end;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.product-picture{
+  width: 100%;
+  height: 200px;
+}
+.price{
+  margin-right: 3px;
+}
+
+.describtion{
+  margin-right: 3px;
+}
+.remaining{
+  color:red;
+}
+
+.stars-outer {
+  display: inline-block;
+  position: relative;
+  font-size: 2em;
+  color: #ddd; 
+  overflow: hidden;
+  font-size: 25px;
+
+}
+
+.stars-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  color: rgb(231, 177, 41);
+}
+
+.stars-outer::before,
+.stars-inner::before {
+  content: "\2605 \2605 \2605 \2605 \2605"; 
+}
+
+.shipping{
+  font-size: small;
+  margin-bottom: 4px;
+  font-style: oblique;
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* ------------------------------------Product page CSS---------------------------------- */
+
+.product-page{
+  display: flex;
+  margin-top: 85px;
+  background-color: beige;
+  text-align: end;
+  justify-content: end;
+  width:100%;
+}
+
+.div-photo{
+  background-color: beige;
+  width:fit-content;
+}
+.div-photo .product-photo{
+  margin-top: 60px;
+  margin-right: 70px;
+  width: 400px;
+  height: 500px;
+}
+.product-information{
+  padding-right: 50px;
+}
+.product-information #product-describtion{
+  margin-top: 90px;
+  /* margin-right: 50px; */
+  font-size: xx-large;
+  width: 500px;
+}
+.product-information #brand{
+  font-size: 16px;
+  color:rgb(127, 127, 238);
+
+}
+.product-information #rats #number-ratings{
+  height: 20px;
+  border-right: 2px solid black;
+  text-align: center;
+  margin-top: 8px;
+  padding-top: 3px;
+  padding-right: 30px;
+  margin-right: 50px;
+}
+.product-information #rats{
+  display: flex;
+  justify-content: end;
+  text-align: center;
+}
+
+.product-information #rats #the-rate{
+  margin-top: 11px;
+  margin-right: 10px;
+}
