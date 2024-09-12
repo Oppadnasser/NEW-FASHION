@@ -1,37 +1,87 @@
-import {useState} from 'react';
-import React from 'react';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom"
+import { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-export default function LogIn(){
-    const [logInfo , setLogInfo] = useState(
-        {
-            email:'', password:''
-        });
+export default function LogIn() {
+  const navigate = useNavigate();
+  const [logInfo, setLogInfo] = useState({
+    email: "",
+    password: "",
+  });
+  const SendData = (event) => {
+    event.preventDefault();
+    axios
+      .post(
+        "http://localhost:3000/log-in",
+        { ...logInfo },
+        { withCredentials: true }
+      )
+      .then((res) => {
+        console.log(res);
+        if (res.status === 200) {
+          const hiddenItems = document.querySelectorAll(".hidden-content");
+          hiddenItems.forEach((item) => {
+            item.style.display = "block";
+          });
+          const showedItem = document.querySelector(".showed-content");
+          showedItem.style.display = "none";
+          if (res.request.response === "Admin") {
+            const admin = document.querySelector(".admin-register-text");
+            admin.style.display = "block";
+          } else if (res.request.response === "Seller") {
+            const Seller = document.querySelectorAll(".seller-content");
+            Seller.forEach((item) => {
+              item.style.display = "block";
+            });
+          }
+          navigate("/main");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        alert("E-mail or Password is worng");
+      });
+  };
+  const Redirect = () => {
+    navigate("/register");
+  };
 
-    return(
-        <div className='Log-in-div'>
-            <form className='log-in-form'>
+  return (
+    <div className="Log-in-div">
+      <form className="log-in-form">
+        <h1>Log-In</h1>
+        <br />
+        <br />
 
-                <h1>Log-In</h1>
-                <br /><br />
+        <label>Email</label>
+        <input
+          value={logInfo.email}
+          type="text"
+          onChange={(event) => {
+            setLogInfo({ ...logInfo, email: event.target.value });
+          }}
+        />
 
-                <label>Email</label>
-                <input value={logInfo.email} type='text' onChange={(event)=>{
-                    setLogInfo({...logInfo,email:event.target.value});
-                }} />
+        <label>Password</label>
+        <input
+          value={logInfo.password}
+          type="password"
+          onChange={(event) => {
+            setLogInfo({ ...logInfo, password: event.target.value });
+          }}
+        />
 
-                <label>Password</label>
-                <input value={logInfo.password} type='password' onChange={(event)=>{
-                    setLogInfo({...logInfo,password:event.target.value});
-                }}/>
+        <button onClick={SendData} className="log-in-login-page">
+          Log-in
+        </button>
 
-                <button className='log-in-login-page'><Link to='/main' id='to-main'>Log-In</Link></button>
-
-                <label id='to-register-link'>Don't Have An Account?</label><br/>
-                <button className='register-login-page'><Link to='/user-register' id='to-register-button'>Register</Link></button>
-
-            </form>
-
-        </div>
-    )
+        <label id="to-register-link">Don't Have An Account?</label>
+        <br />
+        <button onClick={Redirect} className="register-login-page">
+          Register
+        </button>
+      </form>
+    </div>
+  );
 }

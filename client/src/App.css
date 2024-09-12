@@ -305,6 +305,7 @@ img {
   background-color: beige;
 }
 
+
 .profile-update-button:hover {
   color: goldenrod;
 }
@@ -323,7 +324,7 @@ img {
 }
 
 .profile-update-button:hover::before {
-  width: 100%;
+  width: 90%;
 }
 
 .profile-delete-button {
@@ -364,6 +365,45 @@ img {
   width: 90%;
 }
 
+/* //////////////////////////////////////////////////////// */
+#my-posts-button{
+  height: 40px;
+  width: 150px;
+  color: black;
+  background-color: white;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-top: 7px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: beige;
+}
+
+#my-posts-button:hover {
+  color: goldenrod;
+}
+
+#my-posts-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50px;
+  width: 0;
+  height: 100%;
+  background-color: #fff;
+  transform: skewX(35deg);
+  z-index: -1;
+  transition: width 1s;
+}
+
+#my-posts-button:hover::before {
+  width: 90%;
+}
+/* //////////////////////////////////////////////////////////// */
 textarea {
   width: 550px;
   height: 70px;
@@ -378,8 +418,8 @@ textarea {
 }
 
 textarea:focus {
-  background-color: black;
-  color: white;
+  background-color: rgb(200, 204, 200);
+  color: black;
 }
 
 .profile-table-row-label {
@@ -1013,6 +1053,14 @@ textarea:focus {
   margin-bottom: 13px; 
 }
 
+#checkbox{
+  width: 15px;
+  height:15px;
+  box-shadow: 0 0 3px 3px rgb(132, 147, 132);
+  margin-right: 10px;
+  margin-top: 1px;
+}
+
 .register-form .the-form h1{
   font-size: 34px;
   display: grid;
@@ -1094,8 +1142,21 @@ textarea:focus {
   margin-top: 10px;
 }
 
-.product-picture{
+.post h3{
+  margin-right: 8px;
+  margin-bottom: 10px;
+}
+
+.product-picture-div{
+  background-color: white;
+  display: flex;
+  justify-content: center;
   width: 100%;
+  height: 200px;
+}
+
+.product-picture{
+  width:fit-content;
   height: 200px;
 }
 .price{
@@ -1103,11 +1164,13 @@ textarea:focus {
 }
 
 .describtion{
-  margin-right: 3px;
+  margin-left: 30%;
+  height: 35.56px;
+  width:186.41px;
 }
-.remaining{
-  color:red;
-}
+/* #remaining{
+  color:black;
+} */
 
 .stars-outer {
   display: inline-block;
@@ -1195,3 +1258,136 @@ textarea:focus {
   margin-top: 11px;
   margin-right: 10px;
 }
+
+.nav-bar .hidden-content{
+  display: none;
+  
+}
+
+.nav-bar .showed-content{
+  display: block;
+}
+.nav-bar .admin-register-text{
+  display: none;
+}
+.nav-bar .seller-content{
+  display: none;
+}
+
+/*---------------------------new product style--------------------------------------*/
+
+#new-product{
+  display: grid;
+  justify-content: center;
+  padding-top: 25px;
+  height:80%;
+  width:45%;
+  border-radius: 20px;
+  background-color: honeydew;
+  margin-top: 10px;
+}
+#new-product label{
+  display: flex;
+  font-size: large;
+  font:bold;
+  height: 25px;
+  width:200px;
+}
+#new-product-div{
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  height: 1200px;
+  width: 1517px;
+  margin-top: 87px;
+}
+#theHeader{
+  display: grid;
+  place-content: center;  
+}
+#new-product input{
+  height: 40px;
+  width: 550px;
+  border-radius: 12px;
+  background-color: honeydew;
+  border-color: rgb(70, 117, 70);
+  box-shadow: 0 0 5px 5px rgb(132, 147, 132);
+  display: grid;
+  place-content: center;
+  /* margin-top: 5px;
+  margin-bottom: 13px; */
+}
+#post-new-product{
+  position: relative;
+  height: 35px;
+  width: 150px;
+  color: black;
+  font:bold;
+  background-color: white;
+  border-color: honeydew;
+  border-radius: 8px;
+  margin-left: 30%;
+}
+#post-new-product:hover{
+  color:gold;
+}
+
+
+
+
+/* ////////////////////////////MY POSTS CSS//////////////////////////////// */
+
+
+.my-posts-container{
+  background-color:#e8e8e8;
+  margin-top: 88px;
+  justify-content: right;
+  
+}
+
+
+
+/*//////////////////////////////////////////////////////////////////////////*/
+
+/*///////////////////////////////MY product CSS//////////////////////////////*/
+.add-container{
+  background-color: #0000ff;
+  height:300px;
+  margin-bottom: 10px;
+  text-align: right;
+  justify-content: right;
+}
+
+.add-picture-div{
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  background-color: #ff0000;
+  width: 20%;
+  float:right;
+  height:90%;
+  margin-left: 8px;
+}
+.add-picture{
+  height:fit-content;
+  max-height: 100%;
+  max-width: 100%;
+  
+}
+
+.add-describtion{
+  font-size: larger;
+}
+
+.rating-div{
+  justify-content: right;
+  display: flex;
+  margin-right: 22%;
+}
+
+
+.rating-div h4{
+  margin-top: 0.8%;
+  margin-right: 10%;
+}
+/*//////////////////////////////////////////////////////////////////////////*/
