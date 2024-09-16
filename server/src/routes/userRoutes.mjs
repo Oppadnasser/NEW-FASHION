@@ -4,7 +4,6 @@ import {
   newUserValidations,
   newPasswordValidations,
 } from "../validations/user.mjs";
-import "../stratigies/googleOauth.mjs";
 import "../stratigies/Loclay.mjs";
 import passport from "passport";
 import { User } from "../mongoos/Schema/userSchema.mjs";
@@ -15,11 +14,6 @@ const router = Router();
 
 router.use(passport.initialize());
 router.use(passport.session());
-
-router.get(
-  "/google/log-in",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
 
 router.post("/log-in", passport.authenticate("local"), (request, response) => {
   request.session.visited = true;

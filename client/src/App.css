@@ -1339,7 +1339,7 @@ textarea:focus {
 
 
 .my-posts-container{
-  background-color:#e8e8e8;
+  background-color:white;
   margin-top: 88px;
   justify-content: right;
   
@@ -1351,19 +1351,27 @@ textarea:focus {
 
 /*///////////////////////////////MY product CSS//////////////////////////////*/
 .add-container{
-  background-color: #0000ff;
+  background-color: rgb(172, 215, 231);
   height:300px;
+  border:solid white;
+  border-radius: 20px;
   margin-bottom: 10px;
   text-align: right;
   justify-content: right;
+  display: flex;
+  padding-right: 10px;
+}
+
+.info-div{
+  width: 70%;
 }
 
 .add-picture-div{
   justify-content: center;
   align-content: center;
   text-align: center;
-  background-color: #ff0000;
-  width: 20%;
+  background-color: rgb(172, 215, 231);
+  width: 25%;
   float:right;
   height:90%;
   margin-left: 8px;
@@ -1371,7 +1379,7 @@ textarea:focus {
 .add-picture{
   height:fit-content;
   max-height: 100%;
-  max-width: 100%;
+  max-width: 80%;
   
 }
 
@@ -1389,5 +1397,54 @@ textarea:focus {
 .rating-div h4{
   margin-top: 0.8%;
   margin-right: 10%;
+}
+
+.info-div h3{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.add-remaining{
+  font-size: larger;
+  font-weight: bold;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.add-shipping{
+  font-size: large;
+  margin-top: 40px;
+}
+
+.post-info{
+  width: 30%;
+  height:100%;
+  padding-left: 5px;
+  text-align: left;
+}
+.post-info p{
+  margin: 20px;
+}
+.post-info button{
+  margin-top: 20px;
+  height: 25px;
+  width: 80px;
+  color: black;
+  background-color: white;
+  border-color: lavenderblush;
+  border-radius: 12px;
+  margin-right: 10px;
+
+  letter-spacing: 2px;
+  outline: 2px solid #fff;
+  overflow: hidden;
+  transition: color 0.3s;
+  background-color: beige;
+}
+.add-container:hover{
+  border: solid rgb(139, 139, 218);
+  border-radius: 20px;
+}
+.post-info button:hover{
+  color:gold;
+  
 }
 /*//////////////////////////////////////////////////////////////////////////*/

@@ -34,34 +34,43 @@ export default function MyProduct(props) {
       return productInfo.evaluatorNumber;
     }
   };
-  // useEffect(() => {
-  //   console.log(productInfo.evaluatorNumber);
-  //   console.log(review());
-  // }, []);
   return (
     <div className="add-container">
-      <img src={productInfo.logo} alt="" className="company-logo" />
-      <Link to="/product-info" state={{ ...productInfo }}>
-        <div className="add-picture-div">
-          <img className="add-picture" src={productInfo.photo} alt="No" />
-        </div>
-      </Link>
-      <p className="add-describtion">{productInfo.describtion}</p>
-
-      <div className="rating-div">
-        <h4>Reviews {review()}</h4>
-        <div className="stars-outer">
-          <div
-            className="stars-inner"
-            style={{ width: starPercentageRounded }}
-          ></div>
-        </div>
+      <div className="post-info">
+        <p className="post-date">Posted in:</p>
+        <br />
+        <p className="last-update">Last update:</p>
+        <br />
+        <p>views:</p>
+        <br />
+        <button className="post-update-button">update</button>
+        <button className="post-delete-button">delete</button>
       </div>
-      {/*<h3 className="add-price">{numberWithCommas(productInfo.price)} eg</h3>
-      <p className="add-remaining" style={Style}>
-        remaining {productInfo.quantity}
-      </p>
-      <p className="add-shipping">shipping expenses {shipping} eg</p> */}
+      <div className="info-div">
+        <img src={productInfo.logo} alt="" className="company-logo" />
+        <Link to="/product-info" state={{ ...productInfo }}>
+          <div className="add-picture-div">
+            <img className="add-picture" src={productInfo.photo} alt="No" />
+          </div>
+        </Link>
+        <p className="add-describtion">{productInfo.describtion}</p>
+
+        <div className="rating-div">
+          <h4>Reviews: {review()}</h4>
+          <div className="stars-outer">
+            <div
+              className="stars-inner"
+              style={{ width: starPercentageRounded }}
+            ></div>
+          </div>
+        </div>
+        <br />
+        <h3 className="add-price">{numberWithCommas(productInfo.price)} eg</h3>
+        <p className="add-remaining" style={Style}>
+          remaining {productInfo.quantity}
+        </p>
+        <p className="add-shipping">shipping expenses {shipping} eg</p>
+      </div>
     </div>
   );
 }
