@@ -29,6 +29,16 @@ export default function MyPosts() {
           );
         });
         setPosts(thePosts);
+        const hiddenItems = document.querySelectorAll(".hidden-content");
+        hiddenItems.forEach((item) => {
+          item.style.display = "block";
+        });
+        const showedItem = document.querySelector(".showed-content");
+        showedItem.style.display = "none";
+        const Seller = document.querySelectorAll(".seller-content");
+        Seller.forEach((item) => {
+          item.style.display = "inline";
+        });
       })
       .catch((err) => {
         console.log(err);

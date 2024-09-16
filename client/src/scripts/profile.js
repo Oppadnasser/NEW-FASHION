@@ -52,7 +52,6 @@ export default function Profile() {
   const toPosts = () => {
     navigate("/myPosts");
   };
-
   const getData = () => {
     axios
       .get("http://localhost:3000/profile", { withCredentials: true })
