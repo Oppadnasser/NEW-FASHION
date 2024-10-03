@@ -102,6 +102,8 @@ body{
 
 .App {
   margin: auto;
+  
+  margin-bottom: 300px;
 }
 
 .nav-bar{
@@ -176,10 +178,10 @@ body{
   color: rgb(133, 5, 245);
 }
 
-img {
+/* img {
   width: 250px;
   height: 55px;
-}
+} */
 
 /* -------------------------------------------------------------------------------------- */
 /* -------------------------------- Admin Register CSS ---------------------------------- */
@@ -200,7 +202,7 @@ img {
 
 .admin-register-form {
   width: 700px;
-  height: 800px;
+  height: 900px;
   display: grid;
   place-content: center;
   background-color: honeydew;
@@ -228,7 +230,7 @@ img {
   background-color: white;
   border-color: honeydew;
   border-radius: 8px;
-  margin-top: -30px;
+  margin-top: 10px;
   margin-bottom: 5px;
 }
 
@@ -256,6 +258,7 @@ img {
   position: relative;
   top: 90px;
   left: 20px;
+  margin-bottom: 10%;
 }
 
 .profile-h1 {
@@ -495,14 +498,14 @@ textarea:focus {
   background-color: rgb(99, 94, 94);
   position: relative;
   width: 700px;
-  height: 700px;
+  height: 800px;
   left: 400px;
-  top: -450px;
+  top: -400px;
   overflow: hidden;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
-  z-index: 999;
+  z-index: 800;
   display: grid;
   place-content: center;
 }
@@ -524,12 +527,8 @@ textarea:focus {
   color: black;
   border-color: lavenderblush;
   border-radius: 12px;
-  margin-top: 7px;
+  /* margin-top: 7px; */
   margin-right: 10px;
-
-  letter-spacing: 2px;
-  outline: 2px solid #fff;
-  overflow: hidden;
   transition: color 0.3s;
   background-color: rgb(120, 200, 66);
 }
@@ -544,9 +543,8 @@ textarea:focus {
   color: black;
   border-color: lavenderblush;
   border-radius: 12px;
-  margin-top: 7px;
+  /* margin-top: 60px; */
   margin-right: 10px;
-
   letter-spacing: 2px;
   outline: 2px solid #fff;
   overflow: hidden;
@@ -561,7 +559,7 @@ textarea:focus {
 
 .update-form {
   width: 700px;
-  height: 600px;
+  height: 760px;
   display: grid;
   place-content: center;
   background-color: rgb(99, 94, 94);
@@ -607,8 +605,10 @@ textarea:focus {
 /* ------------------------------------- Home CSS --------------------------------------- */
 .home-container {
   display: block;
+  text-align: center;
+  justify-content: center;
   position: relative;
-  top: 90px;
+  top: 129px;
   left: 20px;
 }
 
@@ -616,7 +616,7 @@ textarea:focus {
 .new-home-header .leMagnify span { 
   animation: leMagnify 2s ease-in-out forwards;/* 2s is the duration of the animation*/
   animation-delay: 360s; /* 1s delay between each iteration */
-  font-size: 50px;
+  font-size: 30px;
   /* padding-left: 90px; */
   font-family: "Titillium Web", sans-serif;
   font-weight: 700;
@@ -633,10 +633,11 @@ textarea:focus {
 
 .both-header-content{
   display: flex;
+  text-align: center;
+  justify-content: center;
   height: 200px;
   width: 100%;
-  top:90px;
-  left: 20px;
+  padding-right: 30%;
 }
 
 
@@ -647,23 +648,20 @@ textarea:focus {
   animation: slideInFromBottom 1s ease-out forwards;
   border-color: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
   justify-content: center;
-  margin-left: 35px;
+  margin-left: -10px;
   
 }
 
 .new-home-header #new{
-  color:#e8e8e8;
+  color:white;
 }
 .new-home-header{
   position: relative;
-  width: 250px;
+  width: 150px;
   margin-left: 65px;
   margin-top: 10px;
   border: 7px solid;
-  /* border-top-color: orange;
-  border-left-color: black;
-  border-bottom-color: black;
-  border-right-color: orange; */
+  height: 100px;
 
   border-radius: 10px;
 }
@@ -682,7 +680,8 @@ textarea:focus {
 
 .new-home-header #fashionanimate{
   animation:slideInFromTop 1s ease-out forwards;
-  margin-left: 35px;
+  margin-left: 3px;
+  margin-top: -40px;
   /* box-shadow: 10px 10px 5px black; */
 }
 
@@ -690,7 +689,10 @@ textarea:focus {
 
 
 .new-home-header #fashion{
-  color: #e8e8e8;
+  
+  color: white;
+  margin-left: 3px;
+  margin-top: -90px;
 }
 @keyframes slideInFromBottom {
   0% {
@@ -707,8 +709,8 @@ textarea:focus {
 
 .new-home-header #line{
   animation: slideInFromLeft 1.5s ease-out forwards;
-  width: 200px;
-  margin-left: 20px;
+  width: 137px;
+  margin-top: 0px;
 }
 
 
@@ -718,16 +720,21 @@ textarea:focus {
     transform: translateX(-100%);
     opacity: 0;
   }
-  50%{
-    transform: translateX(40%);
-  }
   100%{
     transform: translateX(0);
     opacity: 1;
   }
 }
 
-.new-home-header .sequenceanimate{
+.new-home-header .sequence{
+  content: attr(data-text);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.new-home-header .sequenceanimate {
     content: attr(data-text);
     top: 0;
     left: 0;
@@ -793,15 +800,54 @@ textarea:focus {
 }
 
 
-/* .new-home-header .sequenceanimate{
-  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    
-} */
+.home-photos{
+  height: 300px;
+  width:300px;
+  margin-left: 38%;
+}
+.home-photos img{
+  max-width: 100%;
+  max-height: 100%;
+  animation: fadeInOut 4s ease-in-out infinite;
+}
 
+.home-sign-button{
+  height: 75px;
+  width: 300px;
+  font-size: 50px;
+  margin-bottom: 200px;
+  border-radius: 40px;
+  background-color: #3030e6;
+  
+  /* margin-left: 20%; */
+}
+
+.home-sign-button:hover{
+  color: white;
+  box-shadow: 2px 2px 2px 2px black ;
+  border: aqua solid 4px;
+}
+
+.home-log-button{
+  height: 75px;
+  width: 300px;
+  font-size: 50px;
+  margin-bottom: 200px;
+  border-radius: 40px;
+  background-color: #3030e6;
+}
+
+.home-log-button:hover{
+  color: white;
+  box-shadow: 2px 2px 2px 2px black ;
+  border: aqua solid 4px;
+}
+.or{
+  margin-left: 10%;
+  margin-right: 10%;
+  font-size: 30px;
+  padding-bottom: 10%;
+}
 
 
 
@@ -865,7 +911,7 @@ textarea:focus {
   -webkit-box-reflect: below 0px linear-gradient(transparent, transparent, #0004);
 }
 
-.side .box span img {
+/* .side .box span img {
   position: absolute;
   top: 0;
   left: 0;
@@ -874,15 +920,16 @@ textarea:focus {
   border-radius: 18px;
   height: 100%;
   object-fit: cover;
-}
+} */
 
 
 /* -------------------------------------------------------------------------------------- */
 /* ------------------------------------ About CSS --------------------------------------- */
 .about-container {
   position: relative;
-  top: 90px;
+  top: 130px;
   left: 20px;
+  margin-bottom: 10%;
 }
 
 .about-h1 {
@@ -912,10 +959,10 @@ textarea:focus {
 
 .Log-in-div{
   position: relative;
-    left: 480px;
+    /* left: 480px; */
     background-color: white;
-    width: 500px;
-    height: 400px;
+    width: 550px;
+    height: 450px;
     display: grid;
     place-content: center;
     border-radius: 18px; 
@@ -924,15 +971,44 @@ textarea:focus {
     left: 33%;
 }
 
+.wrong-popup{
+  margin-top: 30px;
+  text-align: center;
+  justify-content: center;
+  background-color: #bebee9;
+  border: 4px solid balck;
+  border-radius: 20px;
+  position: fixed;
+  padding-top: 30px;
+  height: 250px;
+  width: 550px;
+  z-index: 999;
+}
+.wrong-popup h3{
+  color: rgb(161, 22, 22);
+}
+
+.wrong-popup button{
+  height: 30px;
+  width: 100px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  background-color: blue;
+  color:white;
+}
+
+
 .Log-in-div .log-in-form {
-  width: 500px;
-  height: 400px;
+  width: 550px;
+  height: 450px;
   display: grid;
   place-content: center;
   background-color: honeydew;
   color: black;
   border-radius: 20px;
   border: solid 2px black;
+  
 }
 
 .Log-in-div h1 {
@@ -1025,19 +1101,21 @@ textarea:focus {
   height: 950px;
   display: grid;
   place-content: center;
-  margin-top: 15px;
+  margin-top: 150px;
   border-radius: 18px;
+  margin-bottom: 500px;
 }
 
 .the-form{
   width: 700px;
-  height: 950px;
+  height: 1200px;
   display: grid;
   place-content: center;
   background-color: honeydew;
   color: black;
   border-radius: 20px;
-  margin-top: -30px;
+  margin-top: 100px;
+  border: 1px solid black;
 }
 
 .register-form input{
@@ -1118,8 +1196,10 @@ textarea:focus {
   flex-wrap: wrap;
   justify-content: center;
   margin:auto;
-  margin-top: 85px;
+  margin-top: 130px;
   background-color: rgb(231, 231, 231);
+  min-height: 900px;
+  margin-bottom: -300px;
 }
 
 
@@ -1133,14 +1213,27 @@ textarea:focus {
   margin-top: 2px;
 
 }
+@keyframes postAnimat{
+  0%{
+    transform: translateY(10%);
+    opacity: 0;
+  }
+  100%{
+    transform: translate(0%);
+    opacity: 1;
+  }
+}
 
 .post{
   width:18%;
+  animation: postAnimat 1s;
   background-color:beige ;
   text-align: end;
   margin-left: 10px;
   margin-top: 10px;
+  height: 550px;
 }
+
 
 .post h3{
   margin-right: 8px;
@@ -1157,13 +1250,14 @@ textarea:focus {
 
 .product-picture{
   width:fit-content;
+  max-width: 100%;
   height: 200px;
 }
 .price{
   margin-right: 3px;
 }
 
-.describtion{
+.description{
   margin-left: 30%;
   height: 35.56px;
   width:186.41px;
@@ -1208,28 +1302,40 @@ textarea:focus {
 
 .product-page{
   display: flex;
+  min-height: 1200px;
   margin-top: 85px;
-  background-color: beige;
+  background-color: rgb(172, 215, 231);
   text-align: end;
   justify-content: end;
   width:100%;
+  height: fit-content;
+  margin-bottom: -300px;
+
 }
 
 .div-photo{
-  background-color: beige;
-  width:fit-content;
+  background-color: rgb(172, 215, 231);
+  width: 400px;
+  height: 500px;
+  text-align: center;
 }
 .div-photo .product-photo{
   margin-top: 60px;
-  margin-right: 70px;
-  width: 400px;
-  height: 500px;
+  /* margin-right: 70px; */
+  max-width: 100%;
+  max-height: 100%;
+  
 }
 .product-information{
   padding-right: 50px;
+  max-width: 50%;
 }
-.product-information #product-describtion{
+.product-information #product-name{
   margin-top: 90px;
+  margin-bottom: 5%;
+}
+.product-information #product-description{
+  /* margin-top: 90px; */
   /* margin-right: 50px; */
   font-size: xx-large;
   width: 500px;
@@ -1254,6 +1360,40 @@ textarea:focus {
   text-align: center;
 }
 
+.info-table{
+  border:1px solid black;
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+.info-table td{
+  border-bottom: 1px solid black;
+  height:30px;
+}
+
+.add-to-cart{
+  height:5%;
+  width:15%;
+  border-radius: 10px;
+  background-color: rgb(51, 11, 104);
+  margin-top: 10%;
+  margin-bottom: 10%;
+  color:white;
+  box-shadow: 1px 1px 0.1px 0.1px black;
+  margin-right: 85%
+}
+.add-to-cart:hover{
+  background-color: rgb(135, 71, 219);
+}
+.add-to-cart:active{
+  background-color: rgb(51, 11, 104);
+}
+
+.the-title{
+  border-right: 1px solid black;
+  padding-right: 4px;
+}
+
 .product-information #rats #the-rate{
   margin-top: 11px;
   margin-right: 10px;
@@ -1270,8 +1410,14 @@ textarea:focus {
 .nav-bar .admin-register-text{
   display: none;
 }
-.nav-bar .seller-content{
+.seller-content{
   display: none;
+}
+
+#aboutItem{
+  margin-top: 8px;
+  margin-right: 70%;
+  text-align: left;
 }
 
 /*---------------------------new product style--------------------------------------*/
@@ -1340,9 +1486,10 @@ textarea:focus {
 
 .my-posts-container{
   background-color:white;
-  margin-top: 88px;
-  justify-content: right;
-  
+  margin-top: 130px;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 10%;
 }
 
 
@@ -1359,10 +1506,13 @@ textarea:focus {
   text-align: right;
   justify-content: right;
   display: flex;
+  position: relative;
   padding-right: 10px;
+  height: fit-content;
 }
 
 .info-div{
+  font-size: small;
   width: 70%;
 }
 
@@ -1383,8 +1533,14 @@ textarea:focus {
   
 }
 
-.add-describtion{
+.add-description{
   font-size: larger;
+}
+.add-name{
+  padding-right: 350px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  max-height: 50px;
 }
 
 .rating-div{
@@ -1394,24 +1550,23 @@ textarea:focus {
 }
 
 
-.rating-div h4{
+.rating-div h5{
   margin-top: 0.8%;
   margin-right: 10%;
 }
 
 .info-div h3{
-  margin-top: 20px;
   margin-bottom: 10px;
 }
 .add-remaining{
   font-size: larger;
   font-weight: bold;
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-bottom: 15px;
 }
 .add-shipping{
   font-size: large;
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .post-info{
@@ -1447,4 +1602,149 @@ textarea:focus {
   color:gold;
   
 }
+
+/* ////////////////////update page css */
+.update-post {
+  background-color: rgb(99, 94, 94);
+  position: fixed;
+  width: 800px;
+  height:540px;
+  display: flex;
+  top: 15%;
+  left: 25%;
+  padding: 20px;
+  border-radius: 15px;
+  z-index: 999;
+  justify-content: center;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+
+}
+.update-post-content{
+  height: 460px;
+}
+.update-post-form {
+  width: 60%;
+  height: 400px;
+  display: grid;
+  text-align: start;
+  background-color: rgb(99, 94, 94);
+  color: black;
+  border-radius: 20px;
+}
+
+.update-post-form label {
+  text-align: left;
+}
+
+.update-post-form input {
+  height: 20px;
+  width: 400px;
+  border-radius: 12px;
+  background-color: lavender;
+  border-color: lavenderblush;
+  display: grid;
+  place-content: center;
+  margin-bottom: 5px;
+}
+
+.update-picture-div{
+  width: fit-content;
+  display: flex;
+  height: 300px;
+  margin-left: 30px;
+  margin-top: 10%;
+  align-items: center;
+}
+
+.update-product-img{
+  height: 80%;
+  max-height: 100%;
+  max-width: 100%;
+  border-radius: 10%;
+}
 /*//////////////////////////////////////////////////////////////////////////*/
+
+/* //////////////////////////////delete product popup css////////////////////////////////// */
+
+.delete-product-popup{
+  width: 50%;
+  display: flex;
+  text-align: left;
+  font-size: large;
+  font-weight:bold;
+  padding-left: 4%;
+  height: 40%;
+  background-color: #0000ff;
+  position: fixed;
+  z-index: 9999;
+  top:30%;
+  left:27%;
+  border-radius: 20px;
+  
+}
+
+.delete-product-successfuly-popup{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  font-size: larger;
+  font-weight:bold;
+  padding-top: 7%;
+  height: 40%;  
+  background-color: #6d6de7;
+  position: fixed;  
+  z-index: 9999;
+  top:20%;
+  left:27%;
+  border-radius: 20px;
+}
+.delete-product-popup .delete-question{
+  margin-top: 10%;
+}
+.image-delete-popup{
+  max-height: 100%;
+  max-width: 100%;
+  
+  border-radius: 10px;
+}
+
+.div-image-delete-popup{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 7%;
+  height: 70%;
+  width: 50%;
+  margin-left: 30px;
+}
+
+.delte-product-popup-button{
+  background-color: rgb(255, 0, 0);
+  width: 30%;
+  height: 15%;
+  margin-top: 30%;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.cancel-product-popup-button{
+  background-color: green;
+  width: 30%;
+  height: 15%;
+  margin-top: 30%;
+  margin-left: 10%;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.cancel-product-popup-button:hover{
+  background-color: #00ff00;
+}
+
+footer{
+  position: absolute;
+  width: 100%;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function LogIn() {
@@ -9,6 +9,7 @@ export default function LogIn() {
     email: "",
     password: "",
   });
+  const [worngPopup, setWrongPopup] = useState(false);
   const SendData = (event) => {
     event.preventDefault();
     axios
@@ -40,7 +41,7 @@ export default function LogIn() {
       })
       .catch((err) => {
         console.log(err);
-        alert("E-mail or Password is worng");
+        setWrongPopup(true);
       });
   };
   const Redirect = () => {
@@ -82,6 +83,22 @@ export default function LogIn() {
           Register
         </button>
       </form>
+      {worngPopup && (
+        <div className="wrong-popup">
+          <h3>WRONG PASSWORD OR E-MAIL!</h3>
+          <button
+            onClick={() => {
+              setWrongPopup(false);
+            }}
+          >
+            try again
+          </button>
+          <h5>or</h5>
+          <Link to="/user-register">
+            <button>Sign-in</button>
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

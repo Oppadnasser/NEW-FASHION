@@ -14,8 +14,10 @@ export default function LogOut() {
           hiddenItems.forEach((item) => {
             item.style.display = "none";
           });
-          const showedItem = document.querySelector(".showed-content");
-          showedItem.style.display = "block";
+          const showedItem = document.querySelectorAll(".showed-content");
+          showedItem.forEach((element) => {
+            element.style.display = "block";
+          });
           const admin = document.querySelector(".admin-register-text");
           admin.style.display = "none";
           const seller = document.querySelector(".seller-content");

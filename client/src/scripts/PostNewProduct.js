@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 export default function NewPost() {
   const [productInfo, setInfo] = useState({
     name: "",
     price: 0,
-    photo: "",
+    photo: null,
     companyName: "",
     brand: "",
     shippingExpenses: 0,
@@ -15,33 +15,90 @@ export default function NewPost() {
     description: "",
   });
   const navigate = useNavigate();
-  const SendData = (event) => {
+  const handlePhoto = (e) => {
+    console.log("files", e.target.files[0]);
+    setInfo({ ...productInfo, photo: e.target.files[0] });
+  };
+  const SendData = async (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("name", productInfo.name);
+    formData.append("price", parseInt(productInfo.price));
+    formData.append("quantity", parseInt(productInfo.quantity));
+    formData.append("shippingExpenses", parseInt(productInfo.shippingExpenses));
+    formData.append("evaluation", parseInt(productInfo.evaluation));
+    formData.append("evaluatorNumber", parseInt(productInfo.evaluatorNumber));
+    formData.append("description", productInfo.description);
+    formData.append("companyName", productInfo.companyName);
+    formData.append("brand", productInfo.brand);
+    formData.append("photo", productInfo.photo); // Append the file (photo)
+    formData.forEach((k) => {
+      console.log(k);
+    });
+    try {
+      await axios
+        .post("http://localhost:3000/newProduct", formData, {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          navigate("/product-info", {
+            state: {
+              ...productInfo,
+              photo: `http://localhost:3000/${res.data}`,
+            },
+          });
+        })
+        .catch((err) => {
+          // console.log(err);
+          if (err.response.data.errors) {
+            let message = "";
+            for (let key in err.response.data.errors) {
+              message += err.response.data.errors[key].msg + "\n";
+            }
+            alert(message);
+          } else {
+            console.log(err);
+          }
+        });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
     axios
-      .post(
-        "http://localhost:3000/newProduct",
-        { ...productInfo },
-        { withCredentials: true }
-      )
+      .get("http://localhost:3000/status", { withCredentials: true })
       .then((res) => {
-        navigate("/product-info", { state: { ...productInfo } });
+        const hiddenItems = document.querySelectorAll(".hidden-content");
+        hiddenItems.forEach((item) => {
+          item.style.display = "block";
+        });
+        const showedItem = document.querySelectorAll(".showed-content");
+        showedItem.forEach((element) => {
+          element.style.display = "none";
+        });
+        if (res.request.response === "Admin") {
+          const admin = document.querySelector(".admin-register-text");
+          admin.style.display = "block";
+        } else if (res.request.response === "Seller") {
+          const Seller = document.querySelectorAll(".seller-content");
+          console.log(Seller);
+          Seller.forEach((item) => {
+            item.style.display = "inline";
+          });
+        }
       })
       .catch((err) => {
-        if (err.response.data.errors) {
-          let message = "";
-          for (let key in err.response.data.errors) {
-            message += err.response.data.errors[key].msg + "\n";
-          }
-          alert(message);
-        } else {
-          console.log(err);
-        }
+        console.log(err);
       });
-  };
+  }, []);
 
   return (
     <div id="new-product-div">
-      <form id="new-product">
+      <form id="new-product" onSubmit={SendData}>
         <h1 id="theHeader">Post New Prodcut</h1>
         <label>Name</label>
         <input
@@ -60,13 +117,7 @@ export default function NewPost() {
           placeholder="Price"
         />
         <label>Photo</label>
-        <input
-          type="text"
-          onChange={(event) =>
-            setInfo({ ...productInfo, photo: event.target.value })
-          }
-          placeholder="attach photo link"
-        />
+        <input type="file" name="photo" onChange={handlePhoto} />
         <label>Company</label>
         <input
           type="text"
@@ -106,7 +157,7 @@ export default function NewPost() {
           }
           placeholder="Descripe your product"
         ></textarea>
-        <button id="post-new-product" onClick={SendData}>
+        <button id="post-new-product" type="submit">
           POST
         </button>
       </form>

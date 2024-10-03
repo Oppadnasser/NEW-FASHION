@@ -15,14 +15,31 @@ export default function UserRegister() {
     password: "",
     cPassword: "",
     userType: "User",
-    image: File,
+    image: null,
+    bio: "",
   });
   const navigate = useNavigate();
 
   const SendData = (event) => {
     event.preventDefault();
+    const formData = new FormData();
+    formData.append("firstName", info.firstName);
+    formData.append("lastName", info.lastName);
+    formData.append("dateOfBirth", info.dateOfBirth);
+    formData.append("phone", info.phone);
+    formData.append("address", info.address);
+    formData.append("email", info.email);
+    formData.append("password", info.password);
+    formData.append("userType", info.userType);
+    formData.append("image", info.image);
+    formData.append("bio", info.bio);
     axios
-      .post("http://localhost:3000/sign-in", { ...info })
+      .post("http://localhost:3000/sign-in", formData, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/formdata",
+        },
+      })
       .then((res) => {
         console.log(res.statusText);
         navigate("/login");
@@ -125,6 +142,15 @@ export default function UserRegister() {
           value={info.cPassword}
           onChange={(event) => {
             setInfo({ ...info, cPassword: event.target.value });
+          }}
+        />
+        <label>Bio</label>
+        <input
+          type="textarea"
+          required
+          value={info.bio}
+          onChange={(event) => {
+            setInfo({ ...info, bio: event.target.value });
           }}
         />
         <label>Photo</label>

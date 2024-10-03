@@ -9,8 +9,49 @@ import passport from "passport";
 import { User } from "../mongoos/Schema/userSchema.mjs";
 import { googleUser } from "../mongoos/Schema/googleUserSchema.mjs";
 import { hashPassword } from "../hashing/hashPass.mjs";
+import multer from "multer";
+import fs from "fs";
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
 
 const router = Router();
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "profile photos");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(dirname(dirname(__filename)));
+
+const uploadDir = path.join(__dirname, "profile photos");
+
+const fileFilter = (req, file, cb) => {
+  const filetypes = /jpg|jpeg|png/;
+  const fileType = filetypes.test(file.mimetype);
+  const fileExt = filetypes.test(file.originalname.toLowerCase());
+  if (fileType && fileExt) return cb(null, true);
+  cb(new Error("Error: not allowd type"), false);
+};
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdir(uploadDir, { recursive: true }, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("created successfuly");
+    }
+  });
+}
+
+const upload = multer({
+  storage: storage,
+  fileFilter: fileFilter,
+  limits: { fileSize: 200000 },
+});
 
 router.use(passport.initialize());
 router.use(passport.session());
@@ -139,7 +180,16 @@ router.get("/test", (request, response) => {
 });
 router.post(
   "/sign-in",
+  upload.single("image"),
   checkSchema(newUserValidations),
+  (req, res, next) => {
+    if (req.file) {
+      console.log(req.file);
+      next();
+    } else {
+      res.sendStatus(400);
+    }
+  },
   async (request, response) => {
     request.session.visited = true;
     const result = validationResult(request).array();
@@ -150,6 +200,8 @@ router.post(
       return response.status(400).json({ errors });
     }
     const data = matchedData(request);
+    data.bio = request.body.bio;
+    data.photo = request.file.path;
     console.log(data);
     data.password = hashPassword(data.password);
     const newUser = new User(data);

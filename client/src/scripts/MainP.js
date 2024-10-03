@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import Post from "./Post";
 
@@ -18,7 +18,7 @@ export default function MainP() {
               evaluation={element.evaluation}
               evaluatorNumber={element.evaluatorNumber}
               quantity={element.quantity}
-              photo={element.photo}
+              photo={`http://localhost:3000/${element.photo}`}
               companyName={element.companyName}
               ShippingExpenses={element.shippingExpenses}
               logo="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
@@ -38,8 +38,10 @@ export default function MainP() {
         hiddenItems.forEach((item) => {
           item.style.display = "block";
         });
-        const showedItem = document.querySelector(".showed-content");
-        showedItem.style.display = "none";
+        const showedItem = document.querySelectorAll(".showed-content");
+        showedItem.forEach((element) => {
+          element.style.display = "none";
+        });
         if (res.request.response === "Admin") {
           const admin = document.querySelector(".admin-register-text");
           admin.style.display = "block";

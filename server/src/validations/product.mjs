@@ -1,3 +1,5 @@
+import { body, check } from "express-validator";
+
 export const productValidation = {
   name: {
     notEmpty: { errorMessage: "name is empty" },
@@ -21,10 +23,7 @@ export const productValidation = {
       },
     },
   },
-  photo: {
-    notEmpty: { errorMessage: "No picture attatched" },
-    isString: { errorMessage: "photo link it is null" },
-  },
+
   quantity: {
     isInt: { errorMessage: "no quantitiy had been sent" },
   },
@@ -48,3 +47,23 @@ export const productValidation = {
     },
   },
 };
+
+// export const productValidation = [
+//   body("name").notEmpty().withMessage("name is empty").isString(),
+//   body("price").isInt({ min: 1 }).withMessage("must be at least one"),
+//   body("description")
+//     .isString()
+//     .withMessage("must be string")
+//     .notEmpty()
+//     .withMessage("the description is empty")
+//     .isLength({ max: 500 })
+//     .withMessage("description must be at least 100"),
+//   body("quantity").isInt().withMessage("no quantity had been sent"),
+//   body("companyName").notEmpty().withMessage("invalid company name"),
+//   body("brand").notEmpty().withMessage("invalid company name"),
+//   body("shippingExpenses").isInt().withMessage("invalid shipping expenses"),
+//   body("evaluation").isInt().withMessage("error evaluation number"),
+//   body("evaluatorNumber").isInt().withMessage("error evaluation number"),
+
+//   // Check if the image is present
+// ];

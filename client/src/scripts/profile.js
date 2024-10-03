@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import _ from "lodash";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -12,7 +13,9 @@ export default function Profile() {
     address: "",
     email: "",
     password: "",
+    bio: "",
   });
+  const [updatedInfo, setUpdatedInfo] = useState(null);
 
   const [showDeletePopup, setShowDeletePopup] = useState(false);
   const [showUpdatePopup, setShowUpdatePopup] = useState(false);
@@ -36,6 +39,7 @@ export default function Profile() {
   };
 
   const handleUpdateClick = () => {
+    setUpdatedInfo(_.cloneDeep(Information));
     setShowUpdatePopup(true);
   };
 
@@ -70,13 +74,16 @@ export default function Profile() {
         hiddenItems.forEach((item) => {
           item.style.display = "block";
         });
-        const showedItem = document.querySelector(".showed-content");
-        showedItem.style.display = "none";
+        const showedItem = document.querySelectorAll(".showed-content");
+        showedItem.forEach((element) => {
+          element.style.display = "none";
+        });
         if (res.request.response === "Admin") {
           const admin = document.querySelector(".admin-register-text");
           admin.style.display = "block";
         } else if (res.request.response === "Seller") {
           const Seller = document.querySelectorAll(".seller-content");
+          console.log(Seller);
           Seller.forEach((item) => {
             item.style.display = "inline";
           });
@@ -91,10 +98,11 @@ export default function Profile() {
     axios
       .patch(
         "http://localhost:3000/update",
-        { ...Information },
+        { ...updatedInfo },
         { withCredentials: true }
       )
       .then(() => {
+        setInfo(_.cloneDeep(updatedInfo));
         console.log("sent");
       })
       .catch((err) => {
@@ -191,7 +199,11 @@ export default function Profile() {
             <h3>Bio: </h3>
           </td>
           <td id="profile-table-row-value" className="profile-table-row-value">
-            <textarea placeholder="Commercial Website To Sel, Buy Products" />
+            <textarea
+              placeholder="Commercial Website To Sel, Buy Products"
+              value={Information.bio}
+              onChange={(e) => setInfo({ ...Information, bio: e.target.value })}
+            />
           </td>
         </tr>
       </table>
@@ -248,10 +260,10 @@ export default function Profile() {
                 id="update-input-fname"
                 className="update-input-fname"
                 type="text"
-                placeholder="First Name"
-                value={Information.firstName}
+                // placeholder="First Name"
+                value={updatedInfo.firstName}
                 onChange={(e) =>
-                  setInfo({ ...Information, firtsName: e.target.value })
+                  setUpdatedInfo({ ...updatedInfo, firstName: e.target.value })
                 }
               />
 
@@ -263,9 +275,9 @@ export default function Profile() {
                 className="update-input-lname"
                 type="text"
                 placeholder="Last Name"
-                value={Information.lastName}
+                value={updatedInfo.lastName}
                 onChange={(e) =>
-                  setInfo({ ...Information, lastName: e.target.value })
+                  setUpdatedInfo({ ...updatedInfo, lastName: e.target.value })
                 }
               />
 
@@ -277,9 +289,12 @@ export default function Profile() {
                 className="update-input-date"
                 type="date"
                 placeholder="Date Of Birth"
-                value={Information.dateOfBirth.split("T")[0]}
+                value={updatedInfo.dateOfBirth.split("T")[0]}
                 onChange={(e) =>
-                  setInfo({ ...Information, dateOfBirth: e.target.value })
+                  setUpdatedInfo({
+                    ...updatedInfo,
+                    dateOfBirth: e.target.value,
+                  })
                 }
               />
 
@@ -291,9 +306,9 @@ export default function Profile() {
                 className="update-input-phone"
                 type="text"
                 placeholder="Phone Number"
-                value={Information.phone}
+                value={updatedInfo.phone}
                 onChange={(e) =>
-                  setInfo({ ...Information, phone: e.target.value })
+                  setUpdatedInfo({ ...updatedInfo, phone: e.target.value })
                 }
               />
 
@@ -305,9 +320,9 @@ export default function Profile() {
                 className="update-input-address"
                 type="text"
                 placeholder="Address"
-                value={Information.address}
+                value={updatedInfo.address}
                 onChange={(e) =>
-                  setInfo({ ...Information, address: e.target.value })
+                  setUpdatedInfo({ ...updatedInfo, address: e.target.value })
                 }
               />
 
@@ -319,9 +334,23 @@ export default function Profile() {
                 className="update-input-email"
                 type="email"
                 placeholder="Email"
-                value={Information.email}
+                value={updatedInfo.email}
                 onChange={(e) =>
-                  setInfo({ ...Information, email: e.target.value })
+                  setUpdatedInfo({ ...updatedInfo, email: e.target.value })
+                }
+              />
+
+              <label id="update-label" className="update-label">
+                Bio
+              </label>
+              <input
+                id="update-input-bio"
+                className="update-input-bio"
+                type="textarea"
+                placeholder="bio"
+                value={updatedInfo.bio}
+                onChange={(e) =>
+                  setUpdatedInfo({ ...updatedInfo, bio: e.target.value })
                 }
               />
 
@@ -333,9 +362,9 @@ export default function Profile() {
                 className="update-input-password"
                 type="text"
                 placeholder="Password"
-                value={Information.password}
+                value={updatedInfo.password}
                 onChange={(e) =>
-                  setInfo({ ...Information, password: e.target.value })
+                  setUpdatedInfo({ ...updatedInfo, password: e.target.value })
                 }
               />
             </form>

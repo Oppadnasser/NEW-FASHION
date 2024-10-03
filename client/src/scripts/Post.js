@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Post(props) {
   const productInfo = {
     name: props["name"],
-    describtion: props["description"],
+    description: props["description"],
     price: props["price"],
     logo: props["logo"],
     evaluation: props["evaluation"],
@@ -34,7 +34,7 @@ export default function Post(props) {
         </div>
       </Link>
       <h3>{productInfo.name}</h3>
-      <p className="describtion">{productInfo.describtion}</p>
+      <p className="description">{productInfo.description.slice(0, 40)}</p>
       <div className="stars-outer">
         <div
           className="stars-inner"

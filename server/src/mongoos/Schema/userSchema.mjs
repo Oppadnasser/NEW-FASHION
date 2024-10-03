@@ -25,6 +25,8 @@ const userSchema = new mongoose.Schema({
   email: mongoose.Schema.Types.String,
   sessionid: mongoose.Schema.Types.String,
   userType: mongoose.Schema.Types.String,
+  bio: mongoose.Schema.Types.String,
+  photo: mongoose.Schema.Types.String,
 });
 
 export const User = mongoose.model("Users", userSchema);

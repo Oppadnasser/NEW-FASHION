@@ -27,7 +27,10 @@ app.use(
 );
 
 mongoose
-  .connect("mongodb://localhost/express_tutorial")
+  .connect("mongodb://localhost/express_tutorial", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("connected to database");
   })
@@ -45,7 +48,7 @@ app.use(cookieParser("oppad$$%^&"));
 
 app.use(userRouter);
 app.use(Prouter);
-
+app.use("/uploads", express.static("uploads"));
 app.listen(PORT, () => {
   console.log(`Running on PORT ${PORT}`);
 });
