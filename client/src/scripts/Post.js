@@ -22,7 +22,6 @@ export default function Post(props) {
     color: productInfo.quantity < 10 ? "red" : "black",
   };
   let shipping = productInfo.ShippingExpenses.toFixed(2);
-  console.log(productInfo.name);
   const starPercentage = (productInfo.evaluation / 5) * 100;
   const starPercentageRounded = `${Math.round(starPercentage / 10) * 10}%`;
   return (

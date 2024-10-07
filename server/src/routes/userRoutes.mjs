@@ -82,10 +82,8 @@ router.patch(
   async (request, response) => {
     if (!request.user) return response.status(401).send("Not logged In");
     const result = validationResult(request);
-    console.log(request.user._id);
     if (!result.isEmpty()) return response.status(400).send(result);
     const { newPassword } = matchedData(request);
-    console.log(newPassword);
     await User.updateOne(
       { _id: request.user._id },
       { password: newPassword }
@@ -132,19 +130,16 @@ router.get("/logout", async (request, response, next) => {
   await User.updateOne({ _id: request.user._id }, { sessionid: "" });
   await googleUser.updateOne({ _id: request.user._id }, { sessionid: "" });
 
-  console.log("session property is deleted");
   request.logout((err) => {
     if (err) return next(err);
   });
   Object.keys(request.cookies).forEach((cookieName) => {
     response.clearCookie(cookieName);
   });
-  console.log("cookie is cleared");
   return response.status(200).send("succesfuly logged out");
 });
 
 router.get("/main", (request, response) => {
-  console.log("in main");
   request.session.visited = true;
   return response.sendStatus(200);
 });
@@ -174,7 +169,6 @@ router.get("/users", async (request, response) => {
     });
 });
 router.get("/test", (request, response) => {
-  console.log(request.sessionID);
   if (!request.user) return response.sendStatus(400);
   return response.status(200).send("successfuly reached to test rout");
 });
@@ -184,7 +178,6 @@ router.post(
   checkSchema(newUserValidations),
   (req, res, next) => {
     if (req.file) {
-      console.log(req.file);
       next();
     } else {
       res.sendStatus(400);
@@ -202,7 +195,6 @@ router.post(
     const data = matchedData(request);
     data.bio = request.body.bio;
     data.photo = request.file.path;
-    console.log(data);
     data.password = hashPassword(data.password);
     const newUser = new User(data);
     try {
@@ -215,7 +207,6 @@ router.post(
 );
 
 router.delete("/delete", async (request, response, next) => {
-  console.log(request.sessionID);
   if (!request.sessionID) return response.status(400).send("not loged in");
   await User.deleteOne({ sessionid: request.sessionID })
     .then(() => {
@@ -225,7 +216,6 @@ router.delete("/delete", async (request, response, next) => {
       Object.keys(request.cookies).forEach((cookieName) => {
         response.clearCookie(cookieName);
       });
-      console.log(" succesfuly deleted");
       return response.status(200).send("deleted");
     })
     .catch((err) => {
@@ -245,8 +235,6 @@ router.get(
       .catch((err) => {
         console.log(err);
       });
-    console.log(request.session);
-    console.log(request.user);
     // return response.status(200).send("logged in  succesfuly!");
     response.redirect("/main");
   }

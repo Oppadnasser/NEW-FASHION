@@ -6,20 +6,13 @@ import Profile from "./scripts/profile";
 import About from "./scripts/aboutUs";
 import React from "react";
 import Register from "./scripts/Register";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useNavigate,
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useRef, useEffect } from "react";
 import MainP from "./scripts/MainP";
 import ProductPage from "./scripts/ProductPage";
 import UserRegister from "./scripts/Register";
 import LogIn from "./scripts/LogIn";
 import LogOut from "./scripts/Logout";
-import MyImage from "./assets/logo.png";
 import NewPost from "./scripts/PostNewProduct";
 import MyPosts from "./scripts/MyPosts";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -248,7 +241,7 @@ function App() {
         >
           © 2021 Copyright:
           <a className="text-reset fw-bold" href="">
-            newfashion.com
+            NEWFASHION.com
           </a>
         </div>
       </footer>

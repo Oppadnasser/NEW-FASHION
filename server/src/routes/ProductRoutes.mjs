@@ -49,11 +49,6 @@ const upload = multer({
 });
 Prouter.use(cookieParser("hello"));
 
-Prouter.get("/testfile", (request, response) => {
-  console.log(uploadDir);
-  return response.sendStatus(200);
-});
-
 Prouter.get("/products", (request, response) => {
   // if (!request.user) return response.status(400).send("not logged in");
   const products = Product.find({})
@@ -89,7 +84,6 @@ Prouter.post(
   upload.single("photo"),
   checkSchema(productValidation),
   (request, response, next) => {
-    console.log(request.file);
     if (!request.file) {
       return response.status(400).json({ error: "Image file is required" });
     }
@@ -104,7 +98,6 @@ Prouter.post(
     const data = matchedData(request);
     data.photo = imagePath;
     data.userOwner = request.cookies.id;
-    console.log(data);
     const newProduct = new Product(data);
     try {
       await newProduct.save();
@@ -132,7 +125,6 @@ Prouter.patch(
       );
       if (fs.existsSync(filePath)) {
         fs.unlink(filePath, (err) => {
-          console.log(filePath);
           if (err) return response.status(400).send("file error");
         });
       }
@@ -166,13 +158,11 @@ Prouter.post("/delete/product", (request, response) => {
   if (!request.user) return response.status(400).send("must to be logged in");
   const photoName = request.body.photo.split("\\")[1];
   const filepath = path.join(uploadDir, photoName);
-  console.log(filepath);
   // return response.sendStatus(200);
   Product.findOneAndDelete({
     _id: request.body.id,
   })
     .then(() => {
-      console.log("successfuly");
       if (fs.existsSync(filepath)) {
         fs.unlink(filepath, (err) => {
           if (err) return response.status(402).send(err);

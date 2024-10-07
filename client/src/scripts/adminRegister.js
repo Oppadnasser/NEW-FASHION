@@ -33,7 +33,6 @@ export default function AdminRegister() {
     axios
       .post("http://localhost:3000/sign-in", { ...AInfo })
       .then((res) => {
-        console.log(res.statusText);
         navigate("/login");
       })
       .catch((err) => {

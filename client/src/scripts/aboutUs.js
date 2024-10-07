@@ -18,7 +18,6 @@ export default function About() {
           admin.style.display = "block";
         } else if (res.request.response === "Seller") {
           const Seller = document.querySelectorAll(".seller-content");
-          console.log(Seller);
           Seller.forEach((item) => {
             item.style.display = "inline";
           });

@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image1 from "../assets/products/product1.jpg";
 import Image2 from "../assets/products/product2.jfif";
 import Image3 from "../assets/products/product3.jpg";
@@ -40,7 +40,6 @@ export default function Home() {
     return () => clearInterval(interval);
   }, [statements.length]);
   useEffect(() => {
-    console.log(images);
     axios
       .get("http://localhost:3000/status", { withCredentials: true })
       .then((res) => {
@@ -63,7 +62,7 @@ export default function Home() {
         }
       })
       .catch((err) => {});
-  }, []);
+  });
 
   return (
     <div className="home-container" id="home-container">

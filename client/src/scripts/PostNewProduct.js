@@ -16,7 +16,6 @@ export default function NewPost() {
   });
   const navigate = useNavigate();
   const handlePhoto = (e) => {
-    console.log("files", e.target.files[0]);
     setInfo({ ...productInfo, photo: e.target.files[0] });
   };
   const SendData = async (event) => {
@@ -32,9 +31,6 @@ export default function NewPost() {
     formData.append("companyName", productInfo.companyName);
     formData.append("brand", productInfo.brand);
     formData.append("photo", productInfo.photo); // Append the file (photo)
-    formData.forEach((k) => {
-      console.log(k);
-    });
     try {
       await axios
         .post("http://localhost:3000/newProduct", formData, {
@@ -52,7 +48,6 @@ export default function NewPost() {
           });
         })
         .catch((err) => {
-          // console.log(err);
           if (err.response.data.errors) {
             let message = "";
             for (let key in err.response.data.errors) {
@@ -85,7 +80,6 @@ export default function NewPost() {
           admin.style.display = "block";
         } else if (res.request.response === "Seller") {
           const Seller = document.querySelectorAll(".seller-content");
-          console.log(Seller);
           Seller.forEach((item) => {
             item.style.display = "inline";
           });

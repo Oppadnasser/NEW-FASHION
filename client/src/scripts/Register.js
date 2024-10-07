@@ -41,7 +41,6 @@ export default function UserRegister() {
         },
       })
       .then((res) => {
-        console.log(res.statusText);
         navigate("/login");
       })
       .catch((err) => {

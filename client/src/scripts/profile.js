@@ -83,7 +83,6 @@ export default function Profile() {
           admin.style.display = "block";
         } else if (res.request.response === "Seller") {
           const Seller = document.querySelectorAll(".seller-content");
-          console.log(Seller);
           Seller.forEach((item) => {
             item.style.display = "inline";
           });
@@ -103,7 +102,6 @@ export default function Profile() {
       )
       .then(() => {
         setInfo(_.cloneDeep(updatedInfo));
-        console.log("sent");
       })
       .catch((err) => {
         console.log(err);
@@ -113,7 +111,6 @@ export default function Profile() {
     axios
       .delete("http://localhost:3000/delete", { withCredentials: true })
       .then(() => {
-        console.log("done");
         navigate("/login");
       })
       .catch((err) => {
